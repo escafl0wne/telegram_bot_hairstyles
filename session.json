@@ -1,0 +1,81 @@
+{
+  "sessions": [
+    {
+      "id": "651998887:651998887",
+      "data": {
+        "type": null,
+        "time": "",
+        "date": null,
+        "user": {
+          "firstName": "Miroslav",
+          "secondName": "Babenko",
+          "telegramId": 651998887,
+          "recordId": [
+            {
+              "id": 16,
+              "serviceType": "haircuts",
+              "serviceDescription": "подстрижку",
+              "isCompleted": false,
+              "time": {
+                "id": 16,
+                "timeSlot": "16:00"
+              },
+              "date": {
+                "id": 2,
+                "date": "2023-12-31T00:00:00.000Z"
+              }
+            }
+          ]
+        },
+        "typeLength": 1,
+        "stage": "selection",
+        "messageId": 808,
+        "timeSlots": [
+          {
+            "timeStart": 18,
+            "timeEnd": 19,
+            "timeSlot": "18:00"
+          },
+          {
+            "timeStart": 16,
+            "timeEnd": 17,
+            "timeSlot": "16:00"
+          }
+        ],
+        "description": "подстрижку",
+        "times": [],
+        "selectedTime": "15:00",
+        "messages": {
+          "errors": 0,
+          "bookings": 0,
+          "selection": 0,
+          "calendar": 0,
+          "confirm": 0,
+          "result": 0,
+          "time": 0,
+          "cancelBooking": 0,
+          "admin": 2122
+        },
+        "records": [
+          {
+            "id": 16,
+            "serviceType": "haircuts",
+            "serviceDescription": "подстрижку",
+            "isCompleted": false,
+            "time": {
+              "id": 16,
+              "timeSlot": "16:00"
+            },
+            "date": {
+              "id": 2,
+              "date": "2023-12-31T00:00:00.000Z"
+            }
+          }
+        ],
+        "adminMessages": [],
+        "adminRecords": [],
+        "adminCancelResponseMessage": 2124
+      }
+    }
+  ]
+}
