@@ -7,6 +7,7 @@ import { SESSION_MESSAGES } from '../lib/constats';
 import { getCallendar } from './booking.command';
 import { BookingService } from '../booking.service';
 import { AdminButtons } from '../lib/admin.buttons';
+import { TConfigService } from '../config/config.service';
 
 export let times: string[] = [
   '9:00',
@@ -25,8 +26,13 @@ export let times: string[] = [
 export let adminMessages: number[] = [];
 export let adminButtons: AdminButtons;
 export class StartCommand extends Command {
-  constructor(bot: Telegraf<TBotContext>, userService: UserService, bookingService: BookingService) {
-    super(bot, userService, bookingService);
+  constructor(
+    bot: Telegraf<TBotContext>,
+    userService: UserService,
+    bookingService: BookingService,
+    configService: TConfigService
+  ) {
+    super(bot, userService, bookingService, configService);
   }
 
   handle(): void {
@@ -54,7 +60,7 @@ export class StartCommand extends Command {
       ctx.session.records = user.recordId;
       ctx.session.user = user;
 
-      if (ctx.session.user.telegramId === 651998887) {
+      if (ctx.session.user.telegramId === +this.configService.get('ADMIN_ID')) {
         ctx.session.adminMessages = [];
         const calendar = getCallendar(this.bot);
         await adminButtons.calendarButtons(calendar);

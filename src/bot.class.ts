@@ -24,7 +24,7 @@ export class Bot {
   }
   init() {
     this.commands = [
-      new StartCommand(this.bot, this.userService, this.bookingService),
+      new StartCommand(this.bot, this.userService, this.bookingService, this.configService),
       new SelectionCommand(this.bot, this.userService, this.bookingService),
       new BookingCommand(this.bot, this.bookingService),
     ];
