@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index",
     "build": "rimraf ./build && npx tsc",
-    "start": "pnpm run build && node build/main",
+    "start": "pnpm run build && node build/",
     "lint": "npx eslint ./src",
     "format": "npx eslint ./src --fix"
   },
