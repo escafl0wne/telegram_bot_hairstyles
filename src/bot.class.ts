@@ -36,7 +36,6 @@ export class Bot {
       .launch({
         webhook: {
           domain: 'https://telegrambothairstyles.vercel.app',
-          port: 3000,
         },
       })
       .then(() => {
