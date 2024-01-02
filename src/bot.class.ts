@@ -32,10 +32,12 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
+
     await this.bot.launch({
       webhook: {
         domain: 'https://telegrambothairstyles.vercel.app',
         path: '/',
+        port: 3000,
       },
     });
 
