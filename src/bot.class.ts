@@ -32,12 +32,16 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
-    this.bot.launch({
-      webhook: {
-        domain: 'https://telegrambothairstyles.vercel.app',
-        port: 3000,
-      },
-    });
+    this.bot
+      .launch({
+        webhook: {
+          domain: 'https://telegrambothairstyles.vercel.app',
+          port: 3000,
+        },
+      })
+      .then(() => {
+        console.info(`The bot ${this.bot.botInfo.username} is running on server`);
+      });
 
     process.once('SIGINT', () => this.bot.stop('SIGINT'));
     process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
