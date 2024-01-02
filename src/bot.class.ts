@@ -34,9 +34,7 @@ export class Bot {
     }
     await this.bot.launch({
       webhook: {
-        domain: 'https://telegrambothairstyles.vercel.app/src/index.ts',
-
-        port: 3000,
+        domain: 'https://telegrambothairstyles.vercel.app',
       },
     });
 
