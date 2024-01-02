@@ -32,8 +32,9 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
+    const webhookUrl = 'https://YOUR_VERCEL_DEPLOYED_URL/api/telegram-bot';
 
-    this.bot.launch();
+    this.bot.launch({});
     process.once('SIGINT', () => this.bot.stop('SIGINT'));
     process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
   }
