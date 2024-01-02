@@ -19,7 +19,7 @@ export class Bot {
     private readonly userService: UserService,
     private readonly bookingService: BookingService
   ) {
-    this.bot = new Telegraf<TBotContext>(this.configService.get('BOT_TOKEN'));
+    this.bot = new Telegraf<TBotContext>(this.configService.get('BOT_TOKEN'), {});
     this.bot.use(new LocalSession({ database: './session.json' })).middleware();
   }
   init() {
@@ -32,7 +32,11 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
-    this.bot.launch();
+    this.bot.launch({
+      webhook: {
+        domain: 'https://telegrambothairstyles.vercel.app',
+      },
+    });
 
     process.once('SIGINT', () => this.bot.stop('SIGINT'));
     process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
