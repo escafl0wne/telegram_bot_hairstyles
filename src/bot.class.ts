@@ -32,17 +32,17 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
-    const app = express();
-    //app.use(await this.bot.createWebhook({ domain: 'telegrambothairstyles.vercel.app' }));
-    //app.listen(8000, () => console.log('Listening on port', 8000));
-    await this.bot.launch().then(() => {
-      console.info(`The bot ${this.bot.botInfo.username} is running on server`);
-    });
+    await this.bot
+      .launch({
+        webhook: {
+          domain: 'https://telegrambothairstyles-8bzu07zxq-escafl0wne.vercel.app',
+        },
+      })
+      .then(() => {
+        console.info(`The bot ${this.bot.botInfo.username} is running on server`);
+      });
 
     process.once('SIGINT', () => this.bot.stop('SIGINT'));
     process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
-  }
-  getBot() {
-    return this.bot;
   }
 }
