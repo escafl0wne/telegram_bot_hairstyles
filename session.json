@@ -10,22 +10,7 @@
           "firstName": "Miroslav",
           "secondName": "Babenko",
           "telegramId": 651998887,
-          "recordId": [
-            {
-              "id": 16,
-              "serviceType": "haircuts",
-              "serviceDescription": "подстрижку",
-              "isCompleted": false,
-              "time": {
-                "id": 16,
-                "timeSlot": "16:00"
-              },
-              "date": {
-                "id": 2,
-                "date": "2023-12-31T00:00:00.000Z"
-              }
-            }
-          ]
+          "recordId": []
         },
         "typeLength": 1,
         "stage": "selection",
@@ -54,24 +39,9 @@
           "result": 0,
           "time": 0,
           "cancelBooking": 0,
-          "admin": 2122
+          "admin": 2152
         },
-        "records": [
-          {
-            "id": 16,
-            "serviceType": "haircuts",
-            "serviceDescription": "подстрижку",
-            "isCompleted": false,
-            "time": {
-              "id": 16,
-              "timeSlot": "16:00"
-            },
-            "date": {
-              "id": 2,
-              "date": "2023-12-31T00:00:00.000Z"
-            }
-          }
-        ],
+        "records": [],
         "adminMessages": [],
         "adminRecords": [],
         "adminCancelResponseMessage": 2124
