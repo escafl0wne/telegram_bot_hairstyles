@@ -31,7 +31,12 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
-    await this.bot.launch();
+    await this.bot.launch({
+      webhook: {
+        domain:
+          'https://webhooks.amplify.eu-west-2.amazonaws.com/prod/webhooks?id=738107f7-f88a-465c-a5ea-44e76b246485&token=th5CBRutdK2q7yXJmKEe3n3Vn6AUlLSA1rGzJzH3LY',
+      },
+    });
 
     process.once('SIGINT', () => this.bot.stop('SIGINT'));
     process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
