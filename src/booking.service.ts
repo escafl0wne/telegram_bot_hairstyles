@@ -244,7 +244,7 @@ export class BookingService extends Service {
           },
         },
       });
-
+      if (!records) return [];
       return records.record;
     } catch (error) {
       console.log(error);

@@ -14,20 +14,22 @@ export class AdminButtons {
     if (this.ctx.session.messages.bookings > 0) await deleteButtons(this.ctx, 'bookings');
 
     let ind = 0;
-    for await (const record of bookings) {
-      this.ctx.session.adminMessages.push(
-        (
-          await this.ctx.reply(
-            `Запись ${ind + 1}:\nУслуга: ${record.serviceDescription}\nДата и время: ${formatDate(record.date.date)} ${
-              record.time.timeSlot
-            }\nКлиент: ${record.user.firstName} ${record.user.secondName}`,
-            Markup.inlineKeyboard([Markup.button.callback('Отменить бронирование.', `admin_cancel_${ind}`)])
-          )
-        ).message_id
-      );
+    if (bookings.length > 0)
+      for await (const record of bookings) {
+        this.ctx.session.adminMessages.push(
+          (
+            await this.ctx.reply(
+              `Запись ${ind + 1}:\nУслуга: ${record.serviceDescription}\nДата и время: ${formatDate(
+                record.date.date
+              )} ${record.time.timeSlot}\nКлиент: ${record.user.firstName} ${record.user.secondName}`,
+              Markup.inlineKeyboard([Markup.button.callback('Отменить бронирование.', `admin_cancel_${ind}`)])
+            )
+          ).message_id
+        );
 
-      ind++;
-    }
+        ind++;
+      }
+    else this.ctx.session.adminMessages.push((await this.ctx.reply('У вас нет записей на данный день!')).message_id);
   }
   async cancelResponseButtons(text: string) {
     let id = this.ctx.session.adminCancelResponseMessage;

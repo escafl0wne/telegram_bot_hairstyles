@@ -5,7 +5,6 @@ import LocalSession from 'telegraf-session-local';
 import { Command } from './commands/commands.class';
 import { StartCommand } from './commands/start.command';
 import { SelectionCommand } from './commands/selection.command';
-import express from 'express';
 import { UserService } from './user.service';
 import { BookingService } from './booking.service';
 import { BookingCommand } from './commands/booking.command';
@@ -32,14 +31,7 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
-
-    await this.bot.launch({
-      webhook: {
-        domain: 'https://telegrambothairstyles.vercel.app',
-        path: '/',
-        port: 3000,
-      },
-    });
+    await this.bot.launch();
 
     process.once('SIGINT', () => this.bot.stop('SIGINT'));
     process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
