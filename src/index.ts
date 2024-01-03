@@ -5,6 +5,9 @@ import { PrismaService } from './prisma.service';
 import { BookingService } from './booking.service';
 import express from 'express';
 const app = express();
+app.get('/', (req, res) => {
+  res.send('HEY');
+});
 app.listen(3000, async () => {
   console.log('Running service on port: 3000');
 });
