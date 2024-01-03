@@ -21,6 +21,9 @@ export class Bot {
     this.bot = new Telegraf<TBotContext>(this.configService.get('BOT_TOKEN'), {});
     this.bot.use(new LocalSession({ database: './session.json' })).middleware();
   }
+  getBot() {
+    return this.bot;
+  }
   async init() {
     this.commands = [
       new StartCommand(this.bot, this.userService, this.bookingService, this.configService),
@@ -31,12 +34,12 @@ export class Bot {
     for (const command of this.commands) {
       command.handle();
     }
-    await this.bot.launch({
-      webhook: {
-        domain:
-          'https://webhooks.amplify.eu-west-2.amazonaws.com/prod/webhooks?id=738107f7-f88a-465c-a5ea-44e76b246485&token=th5CBRutdK2q7yXJmKEe3n3Vn6AUlLSA1rGzJzH3LY',
-      },
-    });
+    // await this.bot.launch({
+    //   webhook: {
+    //     domain:
+
+    //   },
+    // });
 
     process.once('SIGINT', () => this.bot.stop('SIGINT'));
     process.once('SIGTERM', () => this.bot.stop('SIGTERM'));
